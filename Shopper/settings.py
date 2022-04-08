@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-y+!yudpiixo1)!26n8dukrx&v!kult42st@70fs8(v8lbug-xf
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'projectsshop.herokuapp.com'
+    'simpleprojects.herokuapp.com'
+    
 ]
 
 

@@ -1,0 +1,24 @@
+{% include 'index.html' %}
+
+{% block contact %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                {% for product in  product %}
+                <div class="card m-auto mt-4 shadow pt-3 rounded-pill text-center mb-4" style="width: 14rem; ">
+                    <img src="{{product.images.url}}" class="card-img-top" alt="..." style="height: 12rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <p class="card-text">Rs.{{product.price}}</p>
+                      <form action="/" method="post">
+                          {% csrf_token %}
+                            <input type="text" hidden name="product" value={{product.id}}>
+                            <input type="submit" class="btn btn-primary" value="Add to cart">
+                      </form>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock  %}

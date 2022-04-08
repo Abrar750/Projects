@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +29,7 @@ SECRET_KEY = 'django-insecure-y+!yudpiixo1)!26n8dukrx&v!kult42st@70fs8(v8lbug-xf
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'simpleprojects.herokuapp.com'
-    
+    'projectsshop.herokuapp.com'
 ]
 
 
@@ -81,8 +82,12 @@ WSGI_APPLICATION = 'Shopper.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Shopper',
+        'PORT':'3306',
+        'HOST':'localhost',
+        'PASSWORD':'',
+        'USER':'root'
     }
 }
 
@@ -123,6 +128,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
